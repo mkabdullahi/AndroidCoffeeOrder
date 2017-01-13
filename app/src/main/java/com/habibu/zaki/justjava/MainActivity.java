@@ -46,9 +46,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        int price = quantity * 5;
-        //displayPrice(quantity * 5);
+        int price = calculatePrice ();
+        /*
+            displayPrice(quantity * 5);
+
         String priceMessage = "Total: $" + price + "\nThank you!";
+        displayMessage (priceMessage);
+        */
+        String priceMessage = createOrderSummary (price);
         displayMessage (priceMessage);
 
     }
@@ -57,6 +62,19 @@ public class MainActivity extends AppCompatActivity {
         TextView quantityOfCoffees;
         quantityOfCoffees = (TextView) findViewById (R.id.quantity_text_view);
         quantityOfCoffees.setText ("" + number);
+    }
+
+    private String createOrderSummary(int price) {
+        String priceMessage = "Habibu Order";
+        priceMessage += "\nQuantity " + quantity;
+        priceMessage +="\nTotal: $" + price;
+        priceMessage += "\nThank you!";
+        return priceMessage;
+
+    }
+    private int calculatePrice()
+    {
+        return  quantity * 5;
     }
 
     protected void displayPrice(int number) {
