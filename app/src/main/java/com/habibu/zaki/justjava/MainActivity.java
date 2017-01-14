@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-     Method to increment the values of quantity when clicked
+        Method to increment the values of quantity when clicked
      */
     public void increment(View view) {
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-     Method to decrement the values of quantity when clicked
+        Method to decrement the values of quantity when clicked
      */
     public void decrement(View view) {
         quantity = quantity - 1;
@@ -52,11 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
         String priceMessage = "Total: $" + price + "\nThank you!";
         displayMessage (priceMessage);
-        */
+
         String priceMessage = createOrderSummary (price);
         displayMessage (priceMessage);
+        */
+
+        displayMessage (createOrderSummary (price));
 
     }
+    /*
+        Another display method
+     */
 
     protected void display(int number) {
         TextView quantityOfCoffees;
@@ -72,11 +78,16 @@ public class MainActivity extends AppCompatActivity {
         return priceMessage;
 
     }
+    /*
+        Methods to calculate total price to be paid
+     */
     private int calculatePrice()
     {
         return  quantity * 5;
     }
-
+    /*
+        Method to displayPrice on submitOrder()
+     */
     protected void displayPrice(int number) {
         TextView price;
         price = (TextView) findViewById (R.id.price_text_view);
